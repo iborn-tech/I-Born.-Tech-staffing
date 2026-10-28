@@ -1,0 +1,225 @@
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        h1 span {
+            background: linear-gradient(to right, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+            line-height: 1.6;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+            border: 1px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #374151;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: #4b5563;
+            transform: translateY(-2px);
+        }
+
+        /* Features/Roles Cards Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #1f2937;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: left;
+            transition: border-color 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: #3b82f6;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(37, 99, 235, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        /* Page 2: Forms Section Wrapper */
+        .form-section-container {
+            display: none; /* Controlled dynamically via JS */
+            width: 100%;
+        }
+
+        .form-section-container.active {
+            display: block;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+        }
+
+        /* Google Form Iframe Container styling */
+        .iframe-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 740px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #1f2937;
+            background-color: #ffffff; /* Gives high contrast fallback readability */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        iframe {
+            width: 100%;
+            height: 850px;
+            border: none;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #090d16;
+            border-top: 1px solid #1f2937;
+            padding: 2rem 5%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive UI Adjustments */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Kept clean for desktop/mobile basic transition */
+            iframe { height: 750px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation Bar -->
+    <nav>
+        <div class="logo">I'Born.<span> tech staffing</span></div>
+        <ul class="nav-links">
+            <li><a href="#" id="nav-home" class="active" onclick="showPage('home-view')">Home</a></li>
+            <li><a href="#" id="nav-client" onclick="showPage('client-view')">Hire Talent</a></li>
+            <li><a href="#" id="nav-talent" onclick="showPage('talent-view')">Join Network</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTAINER FOR DYNAMIC VIEWS -->
+    <main style="margin-top: 4rem;">
+
+        <!-- PAGE 1: HOME VIEW -->
+        <div id="home-view" class="form-section-container active">
+            <section id="home">
+                <div class="container">
+                    <span class="badge">Built For Fast-Growing Startups</span>
+                    <h1>We Source Vetted <span>App Developers, Web Engineers & UI/UX Designers</span></h1>
+                    <p class="hero-desc">
+                        Stop wasting weeks filtering resumes. I'Born connects early-stage startups with pre-vetted tech experts ready to deploy instantly.
+                    </p>
+                    <div class="btn-group">
+                        <button class="btn btn-primary" onclick="showPage('client-view')">Hire Tech Talent</button>
+                        <button class="btn btn-secondary" onclick="showPage('talent-view')">Join Talent Network</button>
+                    </div>
+
+                    <!-- Tech Pillars Grid -->
+                    <div class="grid">
+                        <div class="card">
+                            <div class="card-icon">📱</div>
+                            <h3>Mobile App Developers</h3>
+                            <p>Pre-vetted developers skilled in cross-platform systems including Flutter and React Native for fluid mobile scaling.</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">💻</div>
+                            <h3>Web Developers</h3>
+                            <p>Expert Frontend and Backend specialists ready to architect robust client architectures, database structures, and SaaS platforms.</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">🎨</div>
+                            <h3>UI/UX Designers</h3>
+                            <p>Figma experts and system architects creating high-fidelity interactive interfaces tailored to maximize product engagement.</p>
+                        </div>
+                    </div>
+                </div>
